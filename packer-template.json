@@ -1,0 +1,24 @@
+{
+  "builders":[
+    {
+      "type": "googlecompute",
+      "account_file": "account.json",
+      "project_id": "gcp-mentorship",
+      "source_image": "ubuntu-1604-xenial-v20180612",
+      "communicator": "ssh",
+      "ssh_username": "packer",
+      "zone": "us-central1-a"
+    }
+  ],
+  "provisioners":[
+    {
+      "type": "file",
+      "source": "./files/css_clock.service",
+      "destination": "/tmp/"
+    },
+    {
+      "type": "shell",
+      "script": "./scripts/configure.sh"
+    }
+  ]
+}

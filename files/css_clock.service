@@ -1,0 +1,12 @@
+[Unit]
+Description=Start CSS clock
+WorkingDirectory=/home/packer/css_clock
+After=syslog.target
+[Service]
+ExecStart=/bin/bash -c "cd home/packer/css_clock && npm start"
+RestartSec=5s
+Restart=on-success
+User=root
+
+[Install]
+WantedBy=multi-user.target
