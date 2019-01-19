@@ -1,0 +1,11 @@
+- name: Update
+  apt:
+    update_cache: yes
+  become: true
+
+- name: upgrade system
+  apt:
+    upgrade: yes
+    upgrade: dist
+    update_cache: true
+  become: true

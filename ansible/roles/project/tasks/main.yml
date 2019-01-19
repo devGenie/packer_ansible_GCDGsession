@@ -1,0 +1,31 @@
+- name: Install git
+  apt:
+    name: git
+    state: present
+  become: yes
+
+- name: clone css clock repository
+  git:
+    repo: https://github.com/inno-asiimwe/css_clock
+    dest: ~/css_clock
+  
+- name: Install npm modules
+  command: npm install
+  args:
+    chdir: ~/css_clock
+
+- name: copy service config
+  copy:
+    src: ./files/css_clock.service
+    dest: /etc/systemd/system/css_clock.service
+  become: true
+
+- name: enable the service
+  service:
+    name: css_clock
+    state: enabled
+
+- name: start the service
+  service:
+    name: css_clock
+    state: started
