@@ -1,0 +1,6 @@
+- name : Css Clock
+  hosts: all
+  roles:
+    - update
+    - nodejs
+    - project

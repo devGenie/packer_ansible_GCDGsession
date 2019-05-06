@@ -1,0 +1,25 @@
+- name: Add repository
+  get_url: 
+    url: https://deb.nodesource.com/setup_10.x 
+    dest: ~/
+  
+- name: Activate repo
+  command: bash -
+  become: true
+
+- name: Update cache
+  apt:
+    update_cache: yes
+  become: true
+
+- name: install node
+  apt:
+    name: nodejs
+    state: present
+  become: true
+
+- name: install npm
+  apt:
+    name: npm
+    state: present
+  become: true

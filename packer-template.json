@@ -12,13 +12,8 @@
   ],
   "provisioners":[
     {
-      "type": "file",
-      "source": "./files/css_clock.service",
-      "destination": "/tmp/"
-    },
-    {
-      "type": "shell",
-      "script": "./scripts/configure.sh"
+      "type": "ansible",
+      "playbook_file": "./ansible/playbook.yml"
     }
   ]
 }
